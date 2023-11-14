@@ -1,7 +1,8 @@
 import React from 'react';
 import './App.css';
 import useSWR from 'swr';
-import { fetcher } from './networking.js';
+
+const fetcher = (url) => fetch("http://localhost:3307"+url).then((res) => res.json());
 
 function App() {
     //get data from express.js
@@ -10,9 +11,28 @@ function App() {
     //if error, log it
     if (error) return <div>failed to load</div>;
 
+    //if no data, show loading
+    if (!data) return <div>loading...</div>;
+
     //log data
     console.log(data);
 
+    //id
+    //expires
+    //routes    //id
+
+                //from          //id
+                //to            //name
+
+                //distance
+                //schedule      //id
+                                //price
+
+                                //start         //date
+                                //end
+
+                                //company       //id
+                                                //state
     return (
         <div className="App">
             <h1>Novater</h1>
