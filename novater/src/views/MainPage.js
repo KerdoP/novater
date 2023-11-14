@@ -1,10 +1,13 @@
 import React from 'react';
-import './App.css';
+import './MainPage.css';
 import useSWR from 'swr';
+import { useNavigate } from 'react-router-dom';
 
-const fetcher = (url) => fetch("http://localhost:3307"+url).then((res) => res.json());
+const fetcher = (url) => fetch("http://localhost:3307" + url).then((res) => res.json());
 
-function App() {
+function MainPage() {
+    const navigate = useNavigate();
+
     //get data from express.js
     const { data: allData, error: allError } = useSWR('/v1/bus/schedule', fetcher);
 
@@ -44,7 +47,9 @@ function App() {
                     <p>To: {route.to.name}</p>
                     <p>Distance: {route.distance}</p>
                     {route.schedule.map((schedule, index) => (
-                        <div className='SpecificRoute' key={index}>
+                        <div className='SpecificRoute' key={index}
+                        // onClick={() => {navigate(`/${index.id}`);}}
+                        >
                             <p>Price: {schedule.price}</p>
                             <p>Start date: {schedule.start.date}</p>
                             <p>End date: {schedule.end.date}</p>
@@ -54,7 +59,7 @@ function App() {
                 </div>
             ))}
         </div>
-    );                                    
+    );
 }
 
-export default App;
+export default MainPage;

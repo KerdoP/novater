@@ -15,7 +15,7 @@ const password = 'd45eafceb37814fe73a8d0613bf19cea';
 
 const auth = 'Basic ' + Buffer.from(username + ':' + password).toString('base64');
 
-https.get(url, {headers: {Authorization: auth}}, (resp) => {
+https.get(url, { headers: { Authorization: auth } }, (resp) => {
 
     resp.on('data', (chunk) => {
         data += chunk;
