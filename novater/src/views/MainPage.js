@@ -29,6 +29,16 @@ function MainPage() {
         return fromMatch && toMatch;
     });
 
+    // log local storage
+    var i;
+    console.log("local storage");
+    for (i = 0; i < localStorage.length; i++) {
+        console.log(localStorage.key(i) + "=[" + localStorage.getItem(localStorage.key(i)) + "]");
+    }
+
+    //incase you need to clear local storage for testing
+    //localStorage.clear();
+
     return (
         <div className="App">
             <h1>Novater</h1>
