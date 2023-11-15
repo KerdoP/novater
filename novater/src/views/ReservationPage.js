@@ -52,11 +52,14 @@ function ReservationPage() {
             company: selectedSchedule.company,
         };
     
-        // Add the new reservation to the existing data array
-        const newData = [...existingData, data];
+        // Filter existing data to include only valid reservations
+        const existingReservations = existingData.filter(item => item.id && item.from && item.to && item.distance && item.price && item.start && item.end && item.company);
     
-        // Limit the number of items to the last 15
-        const limitedData = newData.slice(-15);
+        // Add the new reservation to the existing reservations
+        const updatedData = [...existingReservations, data];
+    
+        // Limit the number of items to the last 15 reservations
+        const limitedData = updatedData.slice(-15);
     
         // Save the updated array back to local storage
         localStorage.setItem('data', JSON.stringify(limitedData));
@@ -64,8 +67,6 @@ function ReservationPage() {
         navigate('/');
     }
     
-    
-
     return (
         <div className="App">
             <button onClick={() => { navigate(`/`); }}>Back</button>

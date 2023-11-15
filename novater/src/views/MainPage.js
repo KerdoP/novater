@@ -43,6 +43,7 @@ function MainPage() {
         <div className="App">
             <h1>Novater</h1>
             <h2>Bus Schedule</h2>
+            <h2 onClick={() => { navigate(`/reservations`); }} >My Reservations</h2>
             <p>Offers are valid until: {allData.expires.date}</p>
             <input
                 type='text'

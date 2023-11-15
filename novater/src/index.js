@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import MainPage from './views/MainPage';
 import ReservationPage from './views/ReservationPage';
+import AllReservationsPage from './views/AllReservationsPage';
 
 const router = createBrowserRouter([
     {
@@ -13,6 +14,10 @@ const router = createBrowserRouter([
         path: "/:id",
         element: <ReservationPage />,
     },
+    {
+        path: "/reservations",
+        element: <AllReservationsPage />,
+    }
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
