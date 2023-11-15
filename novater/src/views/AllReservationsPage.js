@@ -15,20 +15,18 @@ function AllReservationsPage() {
         <div className="App">
             <h1>Novater</h1>
             <h2>My Reservations</h2>
-            <h2 onClick={() => { navigate(`/`); }} >Bus Schedule</h2>
+            <h2 className="NavigationButton" onClick={() => { navigate(`/`); }} >Bus Schedule</h2>
             {reservations.map((reservation, index) => (
-                <div key={index}>
-                    <p>Reservation ID: {reservation.id}</p>
+                <div className='Route' key={index}>
                     <p>First Name: {reservation.firstName}</p>
                     <p>Last Name: {reservation.lastName}</p>
                     <p>From: {reservation.from}</p>
                     <p>To: {reservation.to}</p>
                     <p>Distance: {reservation.distance}</p>
                     <p>Price: {reservation.price}</p>
-                    <p>Start: {reservation.start.date}</p>
-                    <p>End: {reservation.end.date}</p>
-                    <p>Company ID: {reservation.company.id}</p>
-                    <p>Company State: {reservation.company.state}</p>
+                    <p>Start date: {reservation.start.date}</p>
+                    <p>End date: {reservation.end.date}</p>
+                    <p>Bus company: {reservation.company.state}</p>
                     <br />
                 </div>
             ))}
